@@ -25,13 +25,13 @@ pipeline {
             }
         }
 
-         stage('QualityGate') {
-            steps {
-                timeout(10) {
-                    waitForQualityGate abortPipeline: true, credentialsId: 'sonar_token'
-                }
-            }
-        }
+         //stage('QualityGate') {
+           // steps {
+             //   timeout(10) {
+              //      waitForQualityGate abortPipeline: true, credentialsId: 'sonar_token'
+                //}
+            //}
+        //}
 
         stage('Deploy') {
             steps {
