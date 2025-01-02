@@ -33,16 +33,16 @@ pipeline {
             //}
         //}
 
-        //stage('Deploy') {
-            //steps {
-                //deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.21.161:8080')], contextPath: '/', war: '**/*.war'
-            //}
-        //}
-
-        stage('Delivery') {
+        stage('Deploy') {
             steps {
-                sh 'aws s3 cp studentapp-2.2-SNAPSHOT.war s3://cbz-studentapp/'
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.21.161:8080')], contextPath: '/', war: '**/*.war'
             }
         }
+
+        //stage('Delivery') {
+            //steps {
+                //sh 'aws s3 cp studentapp-2.2-SNAPSHOT.war s3://cbz-studentapp/'
+           // }
+      //  }
     }
 }
